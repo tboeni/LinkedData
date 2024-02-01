@@ -2,4 +2,4 @@
 
 ## Useful Linked Data Learning Videos:
 * https://open.hpi.de/courses/semanticweb2016/items/5YP5bCLtDYukLRWRYTWuyA
-* https://ise-fizkarlsruhe.github.io/ISE-teaching/ (especially videos 6-9)
+* https://ise-fizkarlsruhe.github.io/ISE-teaching/ (especially slides with videos 6-9)
