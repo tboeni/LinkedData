@@ -1,0 +1,170 @@
+Name:
+  de: "Schweizerische Forststatistik (FS): Forstbetriebe der Schweiz"
+Description:
+  de: "Schweizerische Forststatistik (FS): Strukturdaten in ha - Angaben zur Struktur der Forstbetriebe der Schweiz nach Fläche"
+Publisher: 
+  - IRI: https://register.ld.admin.ch/opendataswiss/org/bundesamt-fur-statistik-bfs
+Creator:
+  - IRI: https://register.ld.admin.ch/opendataswiss/org/bundesamt-fur-umwelt-bafu
+Contributor:
+  - IRI: https://register.ld.admin.ch/opendataswiss/org/bundesamt-fur-umwelt-bafu
+Date Created:
+  2025-08-06
+Contact Point:
+  E-Mail: info@bafu.admin.ch
+  Name: BAFU
+Base-URI: https://ld.admin.ch/bfh/fs_105_b/
+Identifier: fs_105_b
+Version: 1
+Work Status: 
+  Draft
+Visualize:
+  True
+# Optional but recommended
+Accrual Periodicity: yearly
+
+# Optional
+Namespace: fs_105_b
+
+dimensions:
+  # required
+  Forstzone:
+    name:
+      de: Forstzone
+      en: Forest zone
+    description:
+      de: Forstzone
+      en: Forest zone
+    dimension-type: Key Dimension
+    datatype: URI
+    scale-type: nominal
+    path: forestZone
+    mapping:
+      type: replace
+      replacements:
+        Alpen: https://ld.admin.ch/dimension/bgdi/biota/productionregions/4
+        Jura: https://ld.admin.ch/dimension/bgdi/biota/productionregions/1
+        Mittelland: https://ld.admin.ch/dimension/bgdi/biota/productionregions/2
+        Voralpen: https://ld.admin.ch/dimension/bgdi/biota/productionregions/3
+        Alpen-Südseite: https://ld.admin.ch/dimension/bgdi/biota/productionregions/5
+        Schweiz: https://ld.admin.ch/country/CHE
+    data-kind:
+      type: spatial-shape
+    hierarchy:
+      - root: https://ld.admin.ch/country/CHE
+        name: CH - Forest Region
+        next-in-hierarchy: 
+          name: Forest Region
+          inverse-path: http://schema.org/containedInPlace
+          target-class: https://environment.ld.admin.ch/foen/nfi/UnitOfReference/49
+
+  Jahr:
+    name:
+      de: Jahr
+      fr: Année
+      it: Anno
+      en: Year
+    description:
+      de: Jahr der Erhebung
+      en: Year of the survey
+    dimension-type: Key Dimension
+    datatype: URI
+    scale-type: ordinal
+    path: year
+    data-kind: 
+      type: temporal
+      unit: year
+    mapping:
+      type: additive
+      base: https://ld.admin.ch/time/year/
+
+  
+  Kanton:
+    name:
+      de: Kanton
+      en: Canton
+    description:
+      de: Kantone der Schweiz
+    dimension-type: Key Dimension
+    scale-type: nominal
+    datatype: URI
+    path: canton
+    mapping:
+      type: replace
+      replacements:
+        Schweiz: https://ld.admin.ch/country/CHE
+        Zürich: https://ld.admin.ch/canton/1
+        Bern  / Berne: https://ld.admin.ch/canton/2
+        Luzern: https://ld.admin.ch/canton/3
+        Uri: https://ld.admin.ch/canton/4
+        Schwyz: https://ld.admin.ch/canton/5
+        Obwalden: https://ld.admin.ch/canton/6
+        Nidwalden: https://ld.admin.ch/canton/7
+        Glarus: https://ld.admin.ch/canton/8
+        Zug: https://ld.admin.ch/canton/9
+        Fribourg / Freiburg: https://ld.admin.ch/canton/10
+        Solothurn: https://ld.admin.ch/canton/11
+        Basel-Stadt: https://ld.admin.ch/canton/12
+        Basel-Landschaft: https://ld.admin.ch/canton/13
+        Schaffhausen: https://ld.admin.ch/canton/14
+        Appenzell Ausserrhoden: https://ld.admin.ch/canton/15
+        Appenzell Innerrhoden: https://ld.admin.ch/canton/16
+        St. Gallen: https://ld.admin.ch/canton/17
+        Graubünden / Grigioni / Grischun: https://ld.admin.ch/canton/18
+        Aargau: https://ld.admin.ch/canton/19
+        Thurgau: https://ld.admin.ch/canton/20
+        Ticino: https://ld.admin.ch/canton/21
+        Vaud: https://ld.admin.ch/canton/22
+        Valais / Wallis: https://ld.admin.ch/canton/23
+        Neuchâtel: https://ld.admin.ch/canton/24
+        Genève: https://ld.admin.ch/canton/25
+        Jura: https://ld.admin.ch/canton/26
+    data-kind:
+      type: spatial-shape
+
+
+
+  Grössenklasse:
+    name:
+      de: Grössenklasse
+    description:
+      de: "Grössenklassen der Forstbetriebe"
+    dimension-type: Key Dimension
+    scale-type: ordinal
+    datatype: string
+    value-type: Literal
+    path: sizeClass
+
+  Steuerhoheit:
+    name:
+      de: Steuerhoheit
+    description:
+      de: "Steuerhoheit der Forstbetriebe"
+    dimension-type: Key Dimension
+    scale-type: nominal
+    datatype: string
+    value_type: Literal
+    path: taxAuthority
+  
+  Gesamte Waldflächen:
+    name:
+      de: Gesamte Waldfläche
+    description:
+      de: Gesamte Waldfläche in ha
+    dimension-type: Measure Dimension
+    scale-type: ratio
+    datatype: decimal
+    path: areaTotal
+    unit: HECTARE
+
+  Produktive Waldflächen:
+    name:
+      de: Produktive Waldfläche
+    description:
+      de: Produktive Waldfläche in ha
+    dimension-type: Measure Dimension
+    scale-type: ratio
+    datatype: decimal
+    path: areaProductive
+    unit: HECTARE
+
